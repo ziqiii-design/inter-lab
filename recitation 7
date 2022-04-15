@@ -1,0 +1,47 @@
+int rad = 60;    
+float xpos, ypos;   
+
+float xspeed = 3.0;
+float yspeed = 3.0;
+
+int xdirection = 10;
+int ydirection = 10; 
+
+
+void setup() 
+{
+  size(640, 640);
+  noStroke();
+  frameRate(30);
+  ellipseMode(RADIUS);
+ 
+  xpos = 320;
+  ypos = 320;
+}
+
+void draw() 
+{
+  background(#7BCDE5);
+  
+
+  xpos = xpos + ( xspeed * xdirection );  // for (int i=0;i<x.length;i++ {
+  ypos = ypos + ( yspeed * ydirection );  // if(x[i]<=0+size[i]/2)
+                                          //  xspeed[i]=-xspeed[i];
+
+  if (xpos > width-rad || xpos<rad ) {
+    xdirection *= -1;
+  }
+  if (ypos > height-rad || ypos<rad) {
+    ydirection *= -1;
+  }
+
+
+  ellipse(xpos, ypos, rad, rad);
+  ellipse(xpos/3,ypos/3,rad/2,rad/2);
+  rect(xpos/3,ypos/3,rad/2,rad/2);
+  ellipse(xpos/3,ypos/2,rad/3,rad/3);
+  rect(xpos/3,ypos/2,rad/3,rad/3);
+  ellipse(xpos+xpos/2,ypos-ypos/2,rad/4,rad/4);
+  rect(xpos+xpos/2,ypos-ypos/2,rad/4,rad/4);
+  rect(xpos,ypos,rad,rad);
+}
